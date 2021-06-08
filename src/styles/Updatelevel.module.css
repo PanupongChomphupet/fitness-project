@@ -1,0 +1,42 @@
+.bg .hearder .title{
+    text-align: center;
+    margin: 5% 0;
+
+}
+
+.bg .hearder .border{
+    border-bottom: 1px solid red;
+    margin: 4% 5%;
+
+}
+
+.bg .content {
+margin: 0 4%;
+}
+
+.bg .content .inputs {
+    
+}
+.bg .content .inputs label {
+    margin: 2% 0;
+}
+.bg .content .inputs input{
+    font-size: 18px;
+    padding: 3% 0%;
+    margin: 4% 0;
+    width: 100%; 
+    border: none;  
+}
+
+.bg .content .btn .btns {
+    background: #FF0068;
+    margin-top: 10%;
+    width: 50%;
+    padding: 14px 0;
+    margin-left: 24%;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px rgb(83, 83, 83);
+    color: #E2FF2E;
+    font-size: 18px;
+}

@@ -1,0 +1,36 @@
+.contents_das {
+    margin-top: 10%;
+    
+}
+.contents_das .title {
+    margin-left: 5%;
+}
+.cors {
+    display: flex;
+    flex-direction: column;
+    margin: 10% 0;
+}
+.cors .img {
+    margin-left: 6%;
+    width: 88%;
+    height: 150px;
+}
+.cors .namecors {
+    flex: 1;
+}
+.cors .btn {
+    display: flex;
+    flex-direction: row;
+    margin: 6% 6%;
+    
+}
+.btn_das {
+    width: 35%;
+    padding: 8px 0;
+    background: #497227;
+    box-shadow: 0px 0px 8px rgb(83, 83, 83);
+    font-size: 20px;
+    color: #eeff00;
+    border: none;
+    border-radius: 50px;
+}

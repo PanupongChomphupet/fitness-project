@@ -1,0 +1,40 @@
+.bg .hearder .title {
+    text-align: center;
+    margin: 6% 0;
+}
+.bg .hearder .border{
+    border-bottom: 2px solid red;
+    margin: 6% 10%;
+}
+.bg .content {
+    margin: 0 6%;
+}
+.bg .content .user span {
+    font-weight: 900;
+    font-size: 18px;
+}
+.bg .content .user {
+    margin: 10% 0;
+}
+.bg .content .user p {
+    margin: 4% 0%;
+    font-size: 18px;
+}
+.bg .content .user .bill{
+    /* border: 2px solid rgb(255, 255, 255); */
+    box-shadow: 0px 0px 6px black;
+    border-radius: 10px;
+    background: #76b65d;
+    color: #FDFB9C;
+    padding: 3% 5%;
+    margin: 10% 0;
+}
+
+/* .bg .content .user .couse{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    background: #FF0068;
+    color: black;
+    padding: 3% 5%;
+    margin: 10% 0;
+} */

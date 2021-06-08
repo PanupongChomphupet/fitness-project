@@ -1,0 +1,53 @@
+.content .titledas {
+    font-size: 28px;
+    margin: 5% 0;
+    text-align: center;
+}
+.content  .border {
+    border-bottom: 2px solid #00CBFC;
+    margin: 4% 4%;
+}
+
+.content .paragrap {
+    display: flex;
+    flex-direction: column;
+}
+.content .paragrap img{
+    margin: 3%;
+    width: 93.5%;
+    height: 60%;
+}
+.content .paragrap label,input,textarea{
+    outline: none;
+    margin: 2% 3%;
+}
+.content .paragrap label {
+    font-size: 26px;
+    font-weight: 900;
+}
+.content .paragrap input {
+    padding: 3% 2%;
+    font-size: 18px;
+}
+.content .paragrap textarea {
+    font-size: 18px;
+    padding: 0% 2%;
+    height: 150px;
+}
+.content .btn {
+    display: flex;
+    justify-content: center;
+}
+.content .btn_b {
+    outline: none;
+    border: none;
+    background: #497227;
+    color: #FDFB9C;
+    box-shadow: 0px 0px 8px rgb(83, 83, 83);
+    width: 48%;
+    height: 60px;
+    margin: 5% 0%;
+    border-radius: 26px;
+    font-size: 18px;
+    
+}

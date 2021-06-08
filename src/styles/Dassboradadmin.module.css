@@ -1,0 +1,46 @@
+.bg .couse {
+    margin: 6% 0;
+}
+.bg .couse .img {
+    margin: 2% 6%;
+    height: 150px;
+    width: 88%;
+}
+.bg .adddata {
+    display: flex;
+    justify-content: start;
+    margin: 5%;
+}
+.bg .adddata button {
+    width: 40%;
+    background: #497227;
+    color: black;
+    border: none;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: 1px 2px 4px #BE9BDD;
+    border-radius: 10px; 
+    padding: 10px 0;
+}
+.bg .couse .page {
+    display: flex;
+    align-items: center;
+
+}
+.bg .couse .page .name{
+    margin-top: 2%;
+    margin: 0 6%;
+    font-size: 16px;
+    word-wrap:break-word;
+    flex: 0.84;
+}
+.bg .couse button {
+    width: 150%;
+    background: #76b65d;
+    color: #FDFB9C;
+    border: none;
+    box-shadow: 1px 2px 4px #BE9BDD;
+    border-radius: 10px; 
+    padding: 5px 0;
+    margin: 2% 0;
+}

@@ -1,0 +1,45 @@
+.bg .title {
+    text-align: center;
+    margin: 5% 0;
+    font-size: 28px;
+
+}
+
+.bg .border {
+    border-bottom: 2px solid paleturquoise;
+    margin: 2% 10%;
+
+}
+
+.bg .content {
+    margin: 0 4%;
+
+}
+.bg .content .detail {
+    word-wrap: break-word;
+}
+
+.bg .content .level .levellist .leveldiv {
+    display: flex;
+    margin: 3% 0;
+
+}
+
+.bg .content .level .levellist .leveldiv .datalevel {
+    float: left;
+    flex: 1;
+    padding: 2% 3%;
+    word-wrap: break-word;
+
+}
+
+.bg .content .level .levellist .leveldiv .btn {
+    display: flex;
+
+}
+
+.bg .content .level .levellist .leveldiv .btn button {
+    margin: 0 2%;
+    padding: 2% 2%;
+
+}
