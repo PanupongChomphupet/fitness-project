@@ -1,9 +1,11 @@
+.video {
+    margin: 0 2%;
+}
 .video h2, p{
     margin: 5%;
+    font-size: 16px;
 }
 .video video {
-    /* margin-top: 10%;
-    margin-left: 7%; */
     width:320px;
     height:240px; 
 }

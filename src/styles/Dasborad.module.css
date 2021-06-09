@@ -4,6 +4,7 @@
 }
 .contents_das .title {
     margin-left: 5%;
+    font-size: 18px;
 }
 .cors {
     display: flex;
@@ -16,7 +17,10 @@
     height: 150px;
 }
 .cors .namecors {
+    display: flex;
+    align-items: center;
     flex: 1;
+    font-size: 16px;
 }
 .cors .btn {
     display: flex;
@@ -26,11 +30,11 @@
 }
 .btn_das {
     width: 35%;
-    padding: 8px 0;
-    background: #497227;
+    padding: 10px 0;
+    background: #84b85a;
+    color: #FDFB9C;
     box-shadow: 0px 0px 8px rgb(83, 83, 83);
-    font-size: 20px;
-    color: #eeff00;
+    font-size: 16px;
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
 }
