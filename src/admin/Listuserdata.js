@@ -8,6 +8,21 @@ function Listuserdata() {
     const [bill, setbill] = useState([])
     const [list, setlist] = useState([])
     const history = useHistory()
+
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
+
     useEffect(() => {
         axios({
             method: "GET",
@@ -23,7 +38,9 @@ function Listuserdata() {
                 if (index == res.data.user.length - 1) setbill(arr)
             })
         })
+        checkstatus()
     }, [])
+
     useEffect(() => {
         if (user.length > 0) {
             let arr = [];
@@ -48,10 +65,11 @@ function Listuserdata() {
             })
         }
     }, [user.length])
+
     return (
         <div className={styles.bg}>
             <div className={styles.hearder}>
-                <h2 className={styles.title}>รากการสินค้า</h2>
+                <h2 className={styles.title}>รายการสังซื้อ</h2>
                 <div className={styles.border}></div>
             </div>
             <div className={styles.content}>

@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navber from './components/Nevber';
-import Checktoken from './components/Checktoken'
 import Login from './page/Login';
 import Register from './page/Register';
 import Profile from './page/Profile'

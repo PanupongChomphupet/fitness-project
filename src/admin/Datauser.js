@@ -12,7 +12,21 @@ function Datauser() {
     const [level, setlevel] = useState([])
     const [user, setuser] = useState([])
     const [bill, setbill] = useState([])
-
+    
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
+    
     useEffect(() => {
         axios({
             method: "POST",
@@ -23,7 +37,6 @@ function Datauser() {
     }, [])
 
     useEffect(() => {
-
         axios({
             method: "POST",
             url: `http://localhost:5000/databill/${id}/${idcouse}`,
@@ -39,7 +52,9 @@ function Datauser() {
             });
             setbill(res.data.bill)
         })
+        checkstatus()
     }, [])
+
     function approve() {
         axios({
             method: "POST",
@@ -62,6 +77,7 @@ function Datauser() {
 
         })
     }
+    
     function deletedata() {
         axios({
             method: "POST",
@@ -81,6 +97,7 @@ function Datauser() {
             }
         })
     }
+
     return (
         <div className={styles.bg}>
             <div className={styles.content}>
@@ -97,16 +114,13 @@ function Datauser() {
                             <p className={styles.levelone}>เลเวล {item.level} : {item.name} <span> {item.price} บาท</span> </p>
                         </div>
                     ) : null}
-                    <h3>ราคารวม <span>{bill.sumprice} บาท</span></h3>
+                    <h3 className = {styles.sumpricetitle}>ราคารวม <span>{bill.sumprice} บาท</span></h3>
                 </div>
                 <div className={styles.btn}>
                     <button onClick={approve}>อนุญาต</button>
                     <button onClick={deletedata}>ยกเลิก</button>
                 </div>
             </div>
-            {/* <div className={styles.btn}>
-                <button onClick={() => { history.push(`/cousedata/${user._id}`) }}>รายการคอร์ส</button>
-            </div> */}
         </div>
     )
 }

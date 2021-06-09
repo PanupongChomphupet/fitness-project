@@ -44,7 +44,6 @@ function date() {
     }
 }
 
-
 mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, db) => {
     if (err) throw err;
     var dbcon = db.db("userdata");
@@ -76,8 +75,8 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
                     bcrypt.hash(req.body.password, 10, (err, hash) => {
                         if (err) throw (err);
                         dbcon.collection("user").insert({
-                            date: date.date,
-                            time: date.times,
+                            date: date().date,
+                            time: date().times,
                             name: name_surname,
                             age: age,
                             weight: weight,
@@ -243,7 +242,7 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
     })
 
     app.post('/updateprofile', (req, res) => {
-        const { token, name_surname, age, weight, height, gender, tel, email } = req.body;
+        const { token, name_surname, age, weight, height, gender, tel } = req.body;
         jwt.verify(token, 'dc7fea65a4w2s3w4a5w5w5f6g4r5y2f0', async function (err, decoded) {
             async function mvFileone() {
                 return new Promise((resolve, reject) => {
@@ -263,7 +262,6 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
             if (req.files) {
                 fileName = await mvFileone()
             }
-
             const dataSet = {
                 $set: {
                     name: name_surname,
@@ -272,7 +270,6 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
                     height: height,
                     gender: gender,
                     tel: tel,
-                    email: email,
                     img_path: fileName,
                 }
             }
@@ -283,7 +280,6 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
             if (!height) delete dataSet.$set.height;
             if (!gender) delete dataSet.$set.gender;
             if (!tel) delete dataSet.$set.tel;
-            if (!email) delete dataSet.$set.email;
             if (!req.files) delete dataSet.$set.img_path
 
             dbcon.collection("user").update({ _id: ObjectId(decoded._id) }, dataSet,
@@ -779,6 +775,15 @@ mongo.connect("mongodb://localhost:27017", { useUnifiedTopology: true }, (err, d
         dbcon.collection('bank_account').findOne({_id: ObjectId('60bcf6375cc9f56d81d68e99')}, (err ,result) => {
             if (err) throw err
             res.json ({bank : result})
+        })
+    })
+
+    app.post('/check-status', (req, res) => {
+        const {token} = req.body
+        jwt.verify(token, 'dc7fea65a4w2s3w4a5w5w5f6g4r5y2f0', async function (err, decoded) {
+            dbcon.collection('user').findOne({_id: ObjectId (decoded._id)}, (err, result) => {
+                res.send(result.rights)
+            })
         })
     })
 

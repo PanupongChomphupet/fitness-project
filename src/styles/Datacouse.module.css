@@ -1,7 +1,7 @@
 .bg .title {
     text-align: center;
     margin: 5% 0;
-    font-size: 28px;
+    font-size: 18px;
 
 }
 
@@ -15,31 +15,42 @@
     margin: 0 4%;
 
 }
-.bg .content .detail {
+.bg .content .cousetitle, .detailt, .sumlelve{
+    font-size: 16px;
+}
+.bg .content .namecouse, .detail{
+    font-size: 14px;
     word-wrap: break-word;
 }
-
 .bg .content .level .levellist .leveldiv {
     display: flex;
+    align-items: center;
     margin: 3% 0;
-
 }
 
 .bg .content .level .levellist .leveldiv .datalevel {
-    float: left;
-    flex: 1;
+    font-size: 14px;
+    float: unset;
+    flex: 0.9;
+    margin: 0 2%;
     padding: 2% 3%;
     word-wrap: break-word;
 
 }
 
-.bg .content .level .levellist .leveldiv .btn {
-    display: flex;
-
+.bg .content .level .levellist .leveldiv .level .btn {
+     display: flex;
 }
 
 .bg .content .level .levellist .leveldiv .btn button {
-    margin: 0 2%;
-    padding: 2% 2%;
+    box-shadow: 0px 0px 6px black;
+    border-radius: 10px;
+    background: #76b65d;
+    color: #FDFB9C;
+    border: none;
+    width: 100%;
+    margin: 6% 0;
+    padding: 5% 2%;
+    
 
 }

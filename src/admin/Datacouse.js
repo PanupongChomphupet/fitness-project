@@ -7,8 +7,20 @@ import swal from 'sweetalert'
 function Datacouse() {
     const id = useParams().id;
     const [couse, setcouse] = useState([])
-    /* const [level, setlevel] = useState([]) */
     const history = useHistory();
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
     useEffect(() => {
         axios({
             method: "GET",
@@ -19,8 +31,9 @@ function Datacouse() {
             setcouse(res.data.couse)
             /* setlevel(res.data.couse.level) */
         })
+        checkstatus();
     })
-    
+
     function deletelevel(level, id) {
         axios({
             method: "post",
@@ -36,8 +49,8 @@ function Datacouse() {
             }
         })
     }
-    
-    function checkadmin () {
+
+    function checkadmin() {
 
     }
 

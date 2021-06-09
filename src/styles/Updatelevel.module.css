@@ -11,32 +11,40 @@
 }
 
 .bg .content {
-margin: 0 4%;
+margin: 0 2%;
 }
 
 .bg .content .inputs {
-    
+    margin: 0 2%;   
 }
 .bg .content .inputs label {
-    margin: 2% 0;
+    font-weight: 900;
 }
 .bg .content .inputs input{
-    font-size: 18px;
-    padding: 3% 0%;
+    padding: 3% 2%;
+    border-radius: 5px;
+    font-size: 12px;
     margin: 4% 0;
     width: 100%; 
-    border: none;  
+}
+.bg .content .inputs input[type = "text"],input[type = "number"] {
+    border: 1px solid rgb(214, 214, 214);
+}
+
+.bg .content .btn {
+    display: flex;
+    justify-content: center;
 }
 
 .bg .content .btn .btns {
-    background: #FF0068;
+    background: #76b65d;
+    color: #FDFB9C;
+    box-shadow: 0px 0px 8px rgb(83, 83, 83);
     margin-top: 10%;
     width: 50%;
-    padding: 14px 0;
-    margin-left: 24%;
+    padding: 10px 0;
+    margin: 5% 0%;
     border: none;
     border-radius: 30px;
-    box-shadow: 0px 0px 8px rgb(83, 83, 83);
-    color: #E2FF2E;
     font-size: 18px;
 }

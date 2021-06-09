@@ -16,9 +16,26 @@ function Dassborad() {
             setitemcouse(res.data.cos)
         })
     }
+    
+    function checkstatus () {
+        const token = localStorage.getItem("token");
+        axios ({
+            method : 'POST',
+            url : 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then( res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
+
     useEffect(() => {
         loadpage()
+        checkstatus()
     }, [])
+    
     function deletes(ids) {
         const id = ids;
         axios({
@@ -35,12 +52,6 @@ function Dassborad() {
     
     return (
         <div className={styles.bg}>
-            {/* <div className={styles.adddata} >
-                <button onClick={() => { history.push('/insertdata') }}>เพิ่มคอร์ส</button>
-                <button onClick={() => { history.push('/addlevel') }}>เพิ่มเลเวล</button>
-                <button onClick={() => { history.push('/userdata') }}>รายการ</button>
-            </div> */}
-            
             {itemcouse.map((item, index) =>
                 <div key={index} className={styles.couse}>
                     <div onClick={() => { history.push(`/datacouse/${item._id}`) }} style={{ background: `url(https://storage.googleapis.com/video-course/${item.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className={styles.img}></div>

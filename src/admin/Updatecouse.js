@@ -10,6 +10,20 @@ function Updatecouse() {
     const [preview, setPreview] = useState(null);
     const history = useHistory()
     
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
+
     useEffect(() => {
         axios({
             method: "post",
@@ -26,6 +40,7 @@ function Updatecouse() {
             })
             setPreview( "https://storage.googleapis.com/video-course/" + res.data.result.url)
         })
+        checkstatus()
     }, [])
 
     function updatecouse() {

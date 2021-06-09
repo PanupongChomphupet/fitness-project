@@ -32,6 +32,7 @@ function Updatedate() {
   }, [])
 
   function updateprofile(e) {
+    console.log (from)
     const token = localStorage.getItem("token");
     e.preventDefault()
     const formData = new FormData();
@@ -39,7 +40,7 @@ function Updatedate() {
     formData.append("name_surname", from.name_surname)
     formData.append("age", from.age)
     formData.append("weight", from.weight)
-    formData.append("heigth", from.heigth)
+    formData.append("height", from.height)
     formData.append("gender", from.gender)
     formData.append("tel", from.tel)
     formData.append("email", from.email)

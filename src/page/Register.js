@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 import styles from '../styles/Register.module.css'
 import swal from 'sweetalert'
 
-
 function Register() {
     const history = useHistory();
     const [preview, setPreview] = useState(null);
@@ -18,7 +17,7 @@ function Register() {
         password: "",
         image_path: "",
     })
-
+    
     function senddata(e) {
         e.preventDefault()
         const formData = new FormData();
@@ -38,13 +37,13 @@ function Register() {
                 from.password.length >= 8)
         ) {
             strength = 1;
-        } else {
+        } else{
             strength = 0;
-            document.getElementById("ps").innerHTML = "ใช้เฉพาะตัวอักษร ตัวเลข และต้องมากกว่า8ตัว"
+            document.getElementById("ps").innerHTML = "ใช้ตัวอักษร ตัวเลข และต้องมากกว่า8ตัว"
             document.getElementById("ps").style.color = "red"
             document.getElementById("ps").style.fontSize = "12px"
             document.getElementById("pass").style.border = "1px solid red"
-        }
+        }        
         if (strength) {
             axios({
                 method: "POST",
@@ -105,7 +104,7 @@ function Register() {
                     <div className={styles.inputnumber}>
                         <input className={styles.box1}
                             type="number"
-                            placeholder="อายู"
+                            placeholder="อายุ"
                             onChange={e => setfrom({ ...from, age: e.target.value })}
                         /><label>ปี</label>
                         <input className={styles.box2}

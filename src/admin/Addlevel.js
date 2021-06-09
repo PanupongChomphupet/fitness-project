@@ -25,6 +25,19 @@ function Addlevel() {
         price: 0,
 
     })
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
     useEffect(() => {
         axios({
             method: "GET",
@@ -39,6 +52,7 @@ function Addlevel() {
                 if (index == res.data.couse.length - 1) setoptionsss(arr)
             })
         })
+        checkstatus()
     }, [])
     function data(id) {
         setid(id)

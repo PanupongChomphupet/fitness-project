@@ -19,6 +19,20 @@ function Updatelevel() {
     const [loaded, setLoaded] = useState(-1);
     const [videoname, setvideoname] = useState({})
 
+    function checkstatus() {
+        const token = localStorage.getItem("token");
+        axios({
+            method: 'POST',
+            url: 'http://localhost:5000/check-status',
+            headers: { "Content-Type": "application/json" },
+            data: JSON.stringify({ token })
+        }).then(res => {
+            if (res.data !== 'admin') {
+                history.push("/home");
+            }
+        })
+    }
+
     useEffect(() => {
         axios({
             method: "post",
@@ -34,7 +48,9 @@ function Updatelevel() {
 
             })
         })
+        checkstatus()
     }, [])
+
     function save() {
         const formData = new FormData();
         formData.append("name", form.namelevel);
@@ -87,6 +103,7 @@ function Updatelevel() {
             })
         }
     }
+    
     function delectvideo(e) {
         let listvideos = listvideo
         listvideos = listvideos.filter(v => v != e)
@@ -117,7 +134,7 @@ function Updatelevel() {
                         {listvideo.map((item, index) =>
                             <div key={index}>
                                 <div>
-                                    <video width="340" controls>
+                                    <video width="338" controls>
                                         <source src={`https://storage.googleapis.com/video-course/${item}`} type="video/mp4" />
                                     </video>
                                 </div><br />
